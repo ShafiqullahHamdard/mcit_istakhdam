@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--     tree view-->
+    <record id="job_model_treeview" model="ir.ui.view">
+        <field name="name">job.tree.view</field>
+        <field name="model">custom_job.job</field>
+        <field name="arch" type="xml">
+            <tree string="Stages" multi_edit="1">
+                <field name ="name" string ="Job Title"/>
+                  <field name ="description" string ="Description"/>
+                  <field name ="department_id" string="Department"/>
+                <field name ="salary" string="Salary"/>
+                <field name ="start_date" string ="Start Date"/>
+                <field name ="end_date" string ="End Date"/>
+            </tree>
+        </field>
+    </record>
+<!--     form view-->
+    <record id="job_model_form_view" model="ir.ui.view">
+        <field name="name">job.form.view</field>
+        <field name="model">custom_job.job</field>
+        <field name="arch" type="xml">
+            <form string="Stages" multi_edit="1">
+                <header>
+                <!-- Define your button here -->
+                <button name="%(HRMS.action_view_job)d" string="Save and New" invisble ="1"
+                        type="action"
+                        class="oe_highlight" confirm ="Are you sure to open job Action ?" />
+<!--                    <button name ="HRMS.action_view_job" string ="object Button" type ="object"/>-->
+
+                   <field name ="state" widget ="statusbar" nolabel ="1"
+                          options = "{'clickable' :'1'}"
+                          statusbar_visible ="draft,in_consultation,in_progress" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="Job Title"/>
+                            <field name="description" string="Description"/>
+                            <field name="department_id" string="Department"/>
+                        </group>
+                        <group>
+                            <field name="salary" string="Salary"/>
+                            <field name="start_date" string="Start Date"/>
+                            <field name="end_date" string="End Date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_view_job" model="ir.actions.act_window">
+        <field name="name">Register Job</field>
+        <field name="res_model">custom_job.job</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="">
+                No department Found!
+            </p>
+            <p>
+                Please Register your first Department
+            </p>
+        </field>
+    </record>
+    <menuitem
+            name="job"
+            id="job_position_id"
+            sequence="2"/>
+    <menuitem
+            name="Add job "
+            id="job_submenu_id"
+            parent="job_position_id"
+            action="action_view_job"
+            sequence="2"/>
+</odoo>

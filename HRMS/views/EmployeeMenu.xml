@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--tree view-->
+    <record model="ir.ui.view" id="hr_employee_form_view">
+        <field name="name">custom.employee.form</field>
+        <field name="model">custom.employee</field>
+        <field name="arch" type="xml">
+            <form string="Employee">
+                <sheet>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_consultation,in_progress"
+                               options="{clickable :'1'}" nolabel="1"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="name" string="نوم"/>
+                            <field name="fatherName" string="پلار نوم"/>
+                            <field name="GrandFatherName" string="نیکه نوم"/>
+                            <field name="phone" string="ټیلیفون نمبر"/>
+                        </group>
+                        <group>
+                            <field name="Email" string="برېښنالیک"/>
+                            <field name="gender" string="جنسیت"/>
+                            <field name="Date_of_birth" string="تولد نیټه"/>
+                            <field name="department_id" string="ډیپارټمنټ نوم"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--Action for hr.employee model-->
+    <record id="action_view_hr_employee" model="ir.actions.act_window">
+        <field name="name">Register Employee</field>
+        <field name="res_model">custom.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No Employee Found !
+            </p>
+            <p>
+                Please Register employee first
+            </p>
+        </field>
+    </record>
+    <menuitem
+            name="custom_Employee"
+            id="employee_root_menu"
+            sequence="-1"/>
+    <menuitem
+            name="Add Employees"
+            id="employee_root_menu3"
+            parent="employee_root_menu"
+            action="action_view_hr_employee"
+            sequence="1"/>
+</odoo>
