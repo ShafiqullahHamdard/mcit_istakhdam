@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_example_template">
+        <div class="header">
+            <h1>Report Example</h1>
+        </div>
+        <div class="content">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!--                    <tr t-foreach="docs" t-as="doc">-->
+                    <!--                        <td><span t-field="doc.name"/></td>-->
+                    <!--                        <td><span t-field="doc.age"/></td>-->
+                    <!--                    </tr>-->
+                </tbody>
+            </table>
+        </div>
+        <div class ="footer">
+            <h>footer</h>
+        </div>
+    </template>
+
+</odoo>

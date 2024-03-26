@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_model_custom_employee,custom.employee,model_custom_employee,base.group_user,1,1,1,1
-access_model_custom_department,custom.department,model_custom_department,base.group_user,1,1,1,1
-HRMS.access_custom_job_job,access_custom_job_job,HRMS.model_custom_job_job,HRMS.group_doctor_id,1,1,1,1

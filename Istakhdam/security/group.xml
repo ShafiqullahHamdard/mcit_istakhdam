@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Custom Category -->
+        <record model="ir.module.category" id="module_category_custom">
+            <field name="name">استخدام مریت</field>
+            <field name="sequence">10</field>
+        </record>
+        <!-- Custom User Group -->
+        <record model="res.groups" id="custom_group_id">
+            <field name="name">استخدام امر</field>
+            <field name="category_id" ref="module_category_custom"/>
+            <!-- Add any additional fields for the group -->
+        </record>
+    </data>
+</odoo>

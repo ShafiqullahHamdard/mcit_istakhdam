@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        Recruitment Module Category
+        <record model="ir.module.category" id="recuritment_module_id">
+            <field name="name">استخدام آمریت</field>
+            <field name="description">
+            </field>
+        </record>
+        <!-- Doctor Users Group -->
+        <record id="group_recuritment_id" model="res.groups">
+            <field name="name">استخدام امر</field>
+            <field name="category_id" ref="recuritment_module_id"/>
+        </record>
+
+        Managers Users Group
+        <record id="group_manager_id" model="res.groups">
+            <field name="name">استخدام مدیر</field>
+            <field name="category_id"/>
+            <!-- <field name="implied_ids" eval="[(4, ref('group_doctor_id'))]"/> -->
+        </record>
+    </data>
+</odoo>
+
